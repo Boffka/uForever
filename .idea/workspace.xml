@@ -13,7 +13,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uForever.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <list id="e0044139-893c-45aa-a91e-53b1da37f2f8" name="New changelist" comment="" />
     <ignored path="uForever.iws" />
@@ -239,6 +238,8 @@
       <command text="git rm .idea/" />
       <command text="git rm .idea/ -r" />
       <command text="git rm .idea/ -r -f" />
+      <command text="git rm -r --cached .idea" />
+      <command text="git rm .idea -r -f" />
       <command text="git rm -r --cached .idea" />
     </commandsHistory>
   </component>
@@ -625,7 +626,11 @@
       <created>1384296234388</created>
       <updated>1384296234388</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="remove .idea">
+      <created>1384296603401</created>
+      <updated>1384296603401</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
