@@ -1,0 +1,110 @@
+
+<header>
+    <div class="row b-b m-l-none m-r-none">
+        <div class="col-sm-4">
+            <h3 class="m-t m-b-none">{{name}}</h3>
+            <p class="block text-muted"><i>Filename</i>&nbsp;:&nbsp;{{instance.sourceDir}}/{{instance.file}}</p>
+        </div>
+        <div class="col-sm-8">
+            <div class="clearfix m-t-lg m-b-sm pull-right pull-none-xs">
+                <div class="btn-group m-b-sm">
+                    <button class="btn btn-info" ng-click="restartUnit(instance.uid)">
+                        <i class="icon-ok text"></i>
+                        <span class="text">Restart</span>
+                    </button>
+                    <button class="btn btn-default" ng-click="cleanLog(instance.logFile)">
+                        <i class="icon-ok text"></i>
+                        <span class="text">Clear Log</span>
+                    </button>
+                    <button class="btn btn-success" href="#btn-1">
+                        <i class="icon-refresh text"></i>
+                        <span class="text">Refresh</span>
+
+                    </button>
+                    <button class="btn btn-primary"  ng-click="stopUnit(instance.uid)">
+                        <i class="icon-off text"></i>
+                        <span class="text">Stop</span>
+                        <!--<i class="icon-ok text-active"></i>
+                        <span class="text-active">Success</span>-->
+                    </button>
+                    <!--    <button class="btn btn-sm btn-info" type="radio" name="options" id="option1"> <i class="icon-ok text-active"></i>Restart</button>
+
+                    <label class="btn btn-sm btn-success">
+                        <input type="radio" name="options" id="option2"> <i class="icon-ok text-active"></i>Refresh
+                    </label>
+                    <label class="btn btn-sm btn-primary">
+                        <input type="radio" name="options" id="option3"> <i class="icon-ok text-active"></i>Stop
+                    </label>-->
+                </div>
+                <!--<div class="pull-left">
+                    <div class="pull-left m-r-xs">
+                        <span class="block">Users <span class="badge up bg-danger">+5</span></span>
+                        <span class="h4">432k</span>
+                        <i class="icon-level-up text-success"></i>
+                    </div>
+                    <div class="clear">
+                        <div class="sparkline inline" data-type="bar" data-height="35" data-bar-width="4" data-bar-spacing="2" data-stacked-bar-color="['#afcf6f', '#eee']">5:5,8:4,12:5,10:6,11:7,12:2,8:6</div>
+                    </div>
+                </div>
+                <div class="pull-left m-l-lg">
+                    <div class="pull-left m-r-xs">
+                        <span class="block">Profit</span>
+                        <span class="h4">$4k</span>
+                        <i class="icon-level-down text-danger"></i>
+                    </div>
+                    <div class="clear">
+                        <div class="sparkline inline" data-type="bar" data-height="35" data-bar-width="4" data-bar-spacing="2" data-bar-color="#fb6b5b">6,5,8,9,6,3,5</div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <footer class="panel-footer bg-dark lter text-center">
+        <div class="row pull-out">
+            <div class="col-xs-3">
+                <div class="padder-v">
+                    <small class="text-muted">Forever UID</small>
+                    <span class="m-b-xs h4 block">{{instance.uid}}</span>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="padder-v">
+                    <small class="text-muted">Uptime</small>
+                    <span class="m-b-xs h4 block">{{ time.months}} months {{ time.days}} days {{time.hours}}h:{{time.minutes}}m:{{ time.seconds}}s</span>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="padder-v">
+                    <small class="text-muted">Environment</small>
+                    <span class="m-b-xs h4 block">{{instance.env.toUpperCase()}}</span>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="padder-v">
+                    <small class="text-muted">Running</small>
+                    <span class="m-b-xs h4 block text-success" ng-show="instance.running == true">Online</span>
+                    <span class="m-b-xs h4 block text-danger" ng-show="instance.running != true">Offline</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</header>
+
+
+
+<section class="panel panel-primary">
+    <header class="panel-heading">
+        Console.log <span class="badge bg-danger">{{instance.logContent.length-1 }}</span>
+    </header>
+
+    <section class="panel-body">
+    </section>
+        <table class="table table-hover">
+            <tr ng-repeat="log in instance.logContent track by $index" ng-show="log.length">
+                <td>{{$index + 1}}</td>
+                <td>{{log}}</td>
+            </tr>
+        </table>
+
+</section>

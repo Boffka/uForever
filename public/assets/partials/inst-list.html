@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-lg-12">
+            <div class="list-group" ng-repeat="instance in instances | filter:query | orderBy:orderProp" >
+                <div class="list-group-item">
+                    <h3 class="list-group-item-heading">No name</h3>
+                    <span>Running:&nbsp;
+                    <span class="h5" ng-show="instance.running == true"><span class="text-success">Online</span></span></span>
+                    <span class="h5" ng-show="instance.running != true"><span class="text-danger">Offline</span></span></span>
+                    <span class="h3 pull-right"><i class="glyphicon glyphicon-time"></i> Uptime:
+                            <span get-uptime></span>
+                        </span>
+                    <p class="list-group-item-text">
+                        <span>Environment: &nbsp;</span>
+                        <span class="m-b-xs h5 block" ng-bind="instance.env">&nbsp;</span><br>
+                        <span>Filename:</span>
+                        <span class="h5" ng-bind="instance.sourceDir+'/'+instance.file"></span>
+                        <br>
+                        <span>Forever UID:</span>
+                        <span class="h5" ng-bind="instance.uid">&nbsp;</span>
+
+                        <hr>
+                        <a ng-href="/instances/{{instance.uid}}" class="btn btn-lg btn-primary btn-block">
+                            Edit unit <span ng-bind="instance.uid"></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

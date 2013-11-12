@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include _header.ejs %>
+    </head>
+    <body>
+
+            <div class="login-center">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-log-in pull-right"></span>
+                        <h4 class="panel-title text-center">Login to control panel</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form action="/api/login" method="POST" class="panel-body" name="contact_form">
+                            <div class="input-group">
+                                <span class="input-group-addon">Username:</span>
+                                <input type="text" class="form-control" placeholder="Username" name="username">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">Password:</span>
+                                <input type="password" class="form-control" placeholder="Password" name="password">
+                            </div>
+                            <hr>
+                            <button type="submit" class="btn btn-block btn-success">LogIn</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+    <footer>
+        <%- include _footer.light.ejs %>
+    </footer>
+    </body>
+
+
+
+</html>

@@ -1,20 +1,14 @@
 /**
  * Module dependencies.
  */
-/*
-config = require('nconf');
-config.argv()
-    .env()
-    .file({ file: process.cwd()+'/server/config/app.json' });
-*/
 
 var express = require('express');
 var http = require('http');
 var path = require('path');
 var forever = require('forever');
 var passport = require('passport');
-var pass = require(process.cwd()+'/server/config/passport');
-var app = express();
+app = express();
+
 
 /* Routes files */
 var indexRoute = require('./server/routes/index');
@@ -23,20 +17,19 @@ var apiRoute = require('./server/routes/api');
 
 
 
+
+
 // all environments
 app.set('port', process.env.PORT || 3102);
-app.set('views', path.join(__dirname, 'views'));
+app.set('secret', 'MySecret');
+app.set('views', path.join(__dirname, 'server/views'));
 app.set('view engine', 'ejs');
-app.use(express.favicon(__dirname + '/public/img/favicon.ico', { maxAge: 2592000000 }));
+app.use(express.favicon(__dirname + '/public/assets/img/favicon.ico', { maxAge: 2592000000 }));
 //app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
+app.use(express.cookieParser(app.get('secret')));
 app.use(express.session());
-/*app.use(express.session({
-    secret: config.get('security:secret'),
-    maxAge: new Date(Date.now() + 3600000),
-    store: new MongoStore(config.get('db'))}));*/
 app.use(function (req, res, next) {
     if (req.method == 'POST' && req.url == '/login') {
         req.session.cookie.maxAge = 2592000000;
@@ -45,19 +38,20 @@ app.use(function (req, res, next) {
 });
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
 
 
 /* Angular.HTML5 Routes fix */
 
 app.use(function(req, res, next) {
     if(req.url.match(/^\/assets\//) != null) {
-        res.sendfile(path.join(__dirname,'public/', req.url));
+        res.sendfile(path.join(__dirname,'/public', req.url));
     } else {
         next();
     }
 });
+
+app.use(app.router);
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // development only
@@ -67,6 +61,10 @@ if ('development' == app.get('env')) {
 
 /*ROUTES*/
 
+Utils = require('./server/utils');
+var pass = require(process.cwd()+'/server/config/passport');
+//console.log(Utils.generateRandomToken());
+//console.log(Utils.encryptPassword('123123'));
 
 app.get('/', indexRoute.index);
 /*app.get('#!/api/restartall', apiRoute.restartall);*/

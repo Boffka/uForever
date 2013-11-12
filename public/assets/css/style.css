@@ -1,0 +1,76 @@
+body {
+    padding-top: 70px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #717171;
+    background-color: #f3f5f9;
+    border-spacing: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a {
+    color: #575757;
+    text-decoration: none;
+}
+a:hover,
+a:focus {
+    color: #7d7d7d;
+    text-decoration: none;
+}
+
+/*
+.well{
+    z-index: 1;
+    opacity: 0.6;
+}
+*/
+
+
+
+
+
+
+/*CUSTOM*/
+
+.login-center{
+    width: 30%;
+    position: relative;
+    margin: 0px auto;
+    margin-top: 10%;
+    /*left: 40%;
+    position: absolute;
+    top: 40%;*/
+}
+
+
+.bg-black{
+    background-color: #222222;
+}
+
+.l-side-mnu{
+    display: table-cell;
+    vertical-align: top;
+    height: 100%;
+    padding: 0;
+    float: none;
+    width: 180px;
+
+
+
+
+}
