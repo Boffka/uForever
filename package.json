@@ -1,12 +1,42 @@
 {
-  "name": "application-name",
+  "name": "uForever",
+  "description": "Web UI for nodejitsu/forever",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "3.4.2",
-    "ejs": "*"
+    "express": "3.4.4",
+    "ejs": "*",
+    "forever": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "jfs": "~0.1.7",
+    "moment": "*"
+
+
+  },
+  "contributors": [
+        {
+            "name": "Vladimir Shamshudinov",
+            "email": "shamshudinov@gmail.com"
+        }
+  ],
+  "keywords": [
+        "forever",
+        "app",
+        "web app",
+        "dashboard",
+        "admin",
+        "nodejitsu",
+        "ui",
+        "web ui",
+        "api"
+  ],
+  "repository": "https://github.com/Boffka/uForever",
+  "main": "app",
+  "engines": {
+        "node": ">= 0.8.0"
   }
 }
