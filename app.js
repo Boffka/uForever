@@ -74,6 +74,7 @@ app.post('/api/unit/cleanlog/' ,pass.ensureAuthenticated ,apiRoute.clearLogFile)
 app.post('/api/unit/create' ,pass.ensureAuthenticated ,apiRoute.createUnit);
 app.get('/api/unit/get/db/:uid' ,pass.ensureAuthenticated ,apiRoute.getUnitsFromDB);
 app.get('/api/get/unit/:uid' ,pass.ensureAuthenticated ,apiRoute.getUnit);
+app.post('/api/start/dbunit/' ,pass.ensureAuthenticated ,apiRoute.getUnit);
 
 
 app.get('/signup', indexRoute.signup);

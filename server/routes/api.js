@@ -242,7 +242,9 @@ exports.signup = function(req, res){
     }
 };
 
-
+exports.startDbUnit = function(req,res){
+    console.log(req.body.post);
+}
 
 exports.login = function(){
     console.log('login')
