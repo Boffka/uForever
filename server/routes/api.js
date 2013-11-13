@@ -7,7 +7,9 @@ var forever = require('forever');
 var testObj = {'name':'test123'};
 var moment = require('moment');
 var fs = require('fs');
-
+var Store = require('jfs')
+    ,uDb = new Store(process.cwd()+'/server/db/users.json')
+    ,iDb = new Store(process.cwd()+'/server/db/units.json')
 
 exports.restartall = function(req, res){
     console.log(forever);
@@ -75,6 +77,7 @@ exports.createUnit = function(req,res){
     if(req.body){
         var data = {}
         data.unitname = (req.body.unitname)? req.body.unitname : 'No name';
+        data.description = (req.body.description)? req.body.description : 'No description';
         data.filename = (req.body.filename)? req.body.filename : '';
         data.sourceDir = (req.body.sourceDir)? req.body.sourceDir : '';
         data.cwd = (req.body.cwd)? req.body.cwd : '';
@@ -85,11 +88,16 @@ exports.createUnit = function(req,res){
         data.watch = (req.body.watch)? true : false;
         data.active = (req.body.active)? true : false;
         data.port = (req.body.port)? req.body.port : '';
-        models.Unit.findOne({ 'sourceDir':data.sourceDir,'filename': data.filename}, function(err, data){
+        iDb.save(data.sourceDir+data.filename, data, function(err){
+            if(err){
+                console.log('Error unit create ::',err);
+            }
+        });
+        /*models.Unit.findOne({ 'sourceDir':data.sourceDir,'filename': data.filename}, function(err, data){
             if(!err || !data){
                 models.Unit(data).save();
             }
-        });
+        });*/
         res.redirect('/');
     } else {
         res.json({'error': 'Error'});
@@ -147,6 +155,46 @@ exports.getInstances = function(req, res){
 
 
 }
+
+
+exports.getUnit = function(req, res){
+    if (req.params.uid){
+        var uid = req.params.uid;
+        switch (uid){
+            case "units":
+                iDb.all(function(err, units){
+                    if(!err){
+                        if(units != undefined){
+                            res.json(units)
+                        } else {
+                            res.json({'error':'No units!'});
+                        }
+                    } else {
+                        res.json({'error':'No units!'});
+                    }
+                });
+                break;
+            default :
+                forever.list("", function(err, proc) {
+                    var i=-1;
+                    while (proc[++i]) {
+                        if (proc[i].uid === uid){
+                            var iResp = proc[i];
+                            var logfile = fs.readFile(iResp.logFile, 'utf-8', function (err, data) {
+                                iResp.logContent = data.split('\n');
+                                //console.log(iResp)
+                                res.json(iResp);
+                            });
+                        }
+                    };
+                });
+                break;
+        }
+    }
+}
+
+
+
 
 
 

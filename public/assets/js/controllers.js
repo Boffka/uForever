@@ -92,8 +92,8 @@ uControllers.controller('AddUnitCtrl', ['$scope', 'Instance',
     }]);
 
 
-uControllers.controller('UnitsListCtrl', ['$scope', 'Instance',
-    function($scope, Instance) {
-        $scope.instances = Instance.query();
+uControllers.controller('UnitListCtrl', ['$scope', 'Units',
+    function($scope, Units) {
+        $scope.units = Units.query();
         $scope.orderProp = 'age';
     }]);

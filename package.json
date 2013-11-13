@@ -1,5 +1,5 @@
 {
-  "name": "uForever",
+  "name": "node-uforever",
   "description": "Web UI for nodejitsu/forever",
   "version": "0.0.1",
   "private": false,

@@ -1,0 +1,113 @@
+<header>
+    <div class="row b-b m-l-none m-r-none">
+        <div class="col-sm-4">
+            <h3 class="m-t m-b-none"><i class="icon-tasks"></i> Add Unit</h3>
+            <small>&nbsp;</small>
+        </div>
+
+    </div>
+    <footer class="panel-footer bg-dark lter text-center">
+        <div class="row pull-out">
+        </div>
+    </footer>
+</header>
+<div class="col-sm-12">
+    <section class="panel panel-primary">
+        <div class="panel-heading"><h3 class="panel-title">Unit parameters</h3></div>
+
+        <div class="panel-body">
+            <form class="bs-example form-horizontal"  method="post" action="/api/unit/create">
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Unit Name:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="My Script App | F*cking cool App" name="unitname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Description:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="Unit description" name="description">
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">File Name:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="script.js"  name="filename" required>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Source Dir:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="/path/to/your/app" ng-model="MySrcD"  name="sourceDir" required>
+                        <span class="help-block m-b-none text-warning">Without final "/"</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">cwd:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="/path/to/your/app" ng-value="MySrcD"  name="cwd">
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Environment: </label>
+                    <div class="col-lg-10">
+                        <select class="form-control m-b" ng-model="iEnv"  name="env">
+                            <option value="production">Production</option>
+                            <option value="development" ng-selected="true">Development</option>
+                        </select>
+                        <span class="help-block m-b-none text-info">NODE_ENV = <span ng-show="!iEnv">development</span>{{iEnv}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Log File:</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="/path/to/your/log/file.log" name="logFile">
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">spinSleepTime:</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" placeholder="1000"  name="spinSleepTime">
+                    </div>
+                    <label class="col-lg-2 control-label"> minUptime:</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" placeholder="2000"  name="minUptime">
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Active:</label>
+                    <div class="col-sm-1">
+                        <label class="switch">
+                            <input type="checkbox" ng-checked="true"  name="active">
+                            <span></span>
+                        </label>
+                    </div>
+                    <label class="col-sm-2 control-label">Watch:</label>
+                    <div class="col-sm-2">
+                        <label class="switch">
+                            <input type="checkbox" ng-checked="true"  name="watch">
+                            <span></span>
+                        </label>
+                    </div>
+
+                    <label class="col-lg-2 control-label"> Port:</label>
+                    <div class="col-lg-2">
+                        <input type="text" class="form-control" placeholder="3000"  name="port">
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <button type="submit" class="btn btn-block btn-success">Save Unit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>

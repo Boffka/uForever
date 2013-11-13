@@ -19,8 +19,8 @@ uForever.config(
             controller: 'IndexListCtrl'
       }).
       when('/units', {
-        templateUrl: '/assets/partials/units.html',
-        controller: 'UnitsListCtrl'
+        templateUrl: '/assets/partials/unit-list.html',
+        controller: 'UnitListCtrl'
       }).
       when('/unit/add', {
             templateUrl: '/assets/partials/add-unit.html',

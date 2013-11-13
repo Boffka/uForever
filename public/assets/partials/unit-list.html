@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-lg-12">
+            <div class="alert alert-info text-center" ng-show="units.error"><h3>{{units.error}}</h3></div>
+                <div ng-if="!units.error">
+                    <div class="panel panel-primary" ng-repeat="unit in units | filter:query | orderBy:orderProp" >
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">{{unit.unitname}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            {{unit.description}}
+
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center warning">sourceDir</th>
+                                    <th class="text-center">Filename</th>
+                                    <th class="text-center warning">Log file</th>
+                                    <th class="text-center">spinSleepTime</th>
+                                    <th class="text-center warning">minUptime</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center warning">{{unit.sourceDir}}</td>
+                                    <td class="text-center">{{unit.filename}}</td>
+                                    <td class="text-center warning">{{unit.logFile}}</td>
+                                    <td class="text-center">{{unit.spinSleepTime}}</td>
+                                    <td class="text-center warning">{{unit.minUptime}}</td>
+                                </tr>
+                            </tbody>
+                            <thead>
+                            <tr>
+                                <th class="text-center">cwd</th>
+                                <th class="text-center warning">Environment</th>
+                                <th class="text-center">Port</th>
+                                <th class="text-center warning">Watch</th>
+                                <th class="text-center">Active</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-center">{{unit.cwd}}</td>
+                                <td class="text-center warning">{{unit.env}}</td>
+                                <td class="text-center">{{unit.port}}</td>
+                                <td class="text-center warning">{{unit.watch}}</td>
+                                <td class="text-center">{{unit.active}}</td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+
+                            <div class="btn-group btn-group-justified">
+                                <a class="btn btn-info">Edit unit</a>
+                                <a class="btn btn-success">Start unit</a>
+                                <a class="btn btn-danger">Remove Unit</a>
+                            </div>
+
+
+                        <!--<div class="list-group-item">
+
+                            <span>Running:&nbsp;
+                            <span class="h5" ng-show="unit.running == true"><span class="text-success">Online</span></span></span>
+                            <span class="h5" ng-show="unit.running != true"><span class="text-danger">Offline</span></span></span>
+                            <span class="h3 pull-right"><i class="glyphicon glyphicon-time"></i> Uptime:
+                                    <span get-uptime></span>
+                                </span>
+                            <p class="list-group-item-text">
+                                <span>Environment: &nbsp;</span>
+                                <span class="m-b-xs h5 block" ng-bind="unit.env">&nbsp;</span><br>
+                                <span>Filename:</span>
+                                <span class="h5" ng-bind="unit.sourceDir+'/'+unit.file"></span>
+                                <br>
+                                <span>Forever UID:</span>
+                                <span class="h5" ng-bind="unit.uid">&nbsp;</span>
+
+                            <hr>
+                            <a ng-href="/instances/{{unit.uid}}" class="btn btn-lg btn-primary btn-block">
+                                Edit unit <span ng-bind="unit.uid"></span>
+                            </a>
+                            </p>
+                        </div>-->
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

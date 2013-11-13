@@ -12,8 +12,8 @@ var uServices = angular.module('uServices', ['ngResource'])
 
     .factory('Units', ['$resource',
         function ($resource) {
-            return $resource('/api/get/instances/:instanceId', {}, {
-                query: {method: 'GET', params: {instanceId: 'instances'}, isArray: true}
+            return $resource('/api/get/unit/:unitId', {}, {
+                query: {method: 'GET', params: {unitId: 'units'}}
             });
         }])
 

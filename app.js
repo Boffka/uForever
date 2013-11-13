@@ -63,11 +63,8 @@ if ('development' == app.get('env')) {
 
 Utils = require('./server/utils');
 var pass = require(process.cwd()+'/server/config/passport');
-//console.log(Utils.generateRandomToken());
-//console.log(Utils.encryptPassword('123123'));
 
 app.get('/', indexRoute.index);
-/*app.get('#!/api/restartall', apiRoute.restartall);*/
 app.get('/login', indexRoute.login);
 app.post('/api/login', userRoute.postlogin);
 app.post('/api/signup', apiRoute.signup);
@@ -76,6 +73,8 @@ app.get('/api/unit/stop/:uid' ,pass.ensureAuthenticated ,apiRoute.stopUnit);
 app.post('/api/unit/cleanlog/' ,pass.ensureAuthenticated ,apiRoute.clearLogFile);
 app.post('/api/unit/create' ,pass.ensureAuthenticated ,apiRoute.createUnit);
 app.get('/api/unit/get/db/:uid' ,pass.ensureAuthenticated ,apiRoute.getUnitsFromDB);
+app.get('/api/get/unit/:uid' ,pass.ensureAuthenticated ,apiRoute.getUnit);
+
 
 app.get('/signup', indexRoute.signup);
 app.get('/logout', userRoute.logout);

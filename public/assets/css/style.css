@@ -62,6 +62,10 @@ a:focus {
     background-color: #222222;
 }
 
+.bg-success{
+    background-color: #DFF0D8;
+}
+
 .l-side-mnu{
     display: table-cell;
     vertical-align: top;
