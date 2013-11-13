@@ -1,21 +1,18 @@
 {
   "name": "node-uforever",
   "description": "Web UI for nodejitsu/forever",
-  "version": "0.0.1",
-  "private": false,
+  "version": "0.1.2",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "express": "3.4.4",
-    "ejs": "*",
-    "forever": "*",
-    "passport": "*",
-    "passport-local": "*",
+    "ejs": "0.8.4",
+    "forever": "0.10.9",
+    "passport": "0.1.17",
+    "passport-local": "0.1.6",
     "jfs": "~0.1.7",
     "moment": "*"
-
-
   },
   "contributors": [
         {
@@ -34,7 +31,7 @@
         "web ui",
         "api"
   ],
-  "repository": "https://github.com/Boffka/uForever",
+  "repository": "https://github.com/Boffka/uForever.git",
   "main": "app",
   "engines": {
         "node": ">= 0.8.0"
