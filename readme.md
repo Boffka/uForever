@@ -2,7 +2,6 @@
 ***
 
 *Simple Application for administration Node.js running units
-================================
 
 Web UI builded with:
 
