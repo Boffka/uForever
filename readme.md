@@ -55,7 +55,7 @@ Web UI builded with:
 ### Via npm (node package manager)
 
 ``` bash
-      npm install forever-webui && sudo node node_modules/forever-webui/app.js
+      npm install node-uforever && sudo node node_modules/node-uforever/app.js
 ```
 
 and browse ```http://127.0.0.1:3102```
