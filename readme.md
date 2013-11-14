@@ -6,7 +6,7 @@
 
 Web UI builded with:
 
-* [Bootstrap3](http://getbootstrap.com/)
+* [Bootstrap 3](http://getbootstrap.com/)
 * [JQuery](http://jquery.com/)
 * [Angular.js](http://angularjs.org/)
 * Node modules:
@@ -17,7 +17,6 @@ Web UI builded with:
   * [Passport](https://github.com/jaredhanson/passport)
 
 ## Main Features
-----------------
   * Forever control
     * Restart All
     * Stop All
@@ -51,7 +50,6 @@ Web UI builded with:
 
 
 ## Installation
---------------
 ### Via npm (node package manager)
 
 ``` bash
@@ -61,7 +59,6 @@ Web UI builded with:
 and browse ```http://127.0.0.1:3102```
 
 ## TODO
-----------------
  * Maintance control (Memory, CPU, workers ...)
  * Unit start scheduler
  * Create Unit environment
